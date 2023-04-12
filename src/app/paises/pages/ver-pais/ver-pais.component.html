@@ -1,0 +1,53 @@
+<div class="col mt-3">
+
+
+    <div *ngIf="!pais && !error else divPais"
+    class="alert alert-info">
+    Espere un momento
+    
+    </div>
+    <div *ngIf="error"
+    class="alert alert-danger">
+    No existe el pais
+    
+    </div>
+    
+    <ng-template #divPais>
+    <div >
+        <div class="row">
+            <div class="col-12">
+                <h2>Pais: <small>{{pais.name.common}}</small></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <h3>Bandera</h3>
+                <img [src]="pais.flags.png" class="img-thumbnail" [alt]="pais.name.common">
+            </div>
+            <div class="col">
+    
+    
+                <h2>Pais:</h2>
+                 <table class="table table-hover" >
+                    <thead>
+                <tr >
+                <th>Bandera</th>
+                <th>Pais</th>
+                <th>Poblacion</th>
+                
+                </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+                            <td>{{pais.flag}}</td>
+                            <td>{{pais.capital}}-{{pais.name.common}}</td>
+                            <td>{{pais.population  }}</td>                 
+                        </tr>        
+                    </tbody>
+                </table> 
+    
+            </div>
+        </div>
+    </div>
+    </ng-template>
+</div>
